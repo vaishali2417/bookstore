@@ -1,0 +1,823 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair Display">
+
+    <style>
+      .profile-pic {
+  border-radius: 50%;
+  width: 180px;
+  height: 180px; /* Adjust height if needed to match width for a circle */
+}
+
+body {
+  font-family: "Playfair Display", sans-serif;
+}
+    </style>
+
+</head>
+
+<body>
+
+   <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+     <a class="navbar-brand" href="#"><img src="{% static 'icons/logo.jpeg' %}" alt="logo" class="navbar-logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Books
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">English Books</a></li>
+                    <li><a class="dropdown-item" href="#">Marathi Books</a></li>
+                  </ul>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Category
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Democracy</a></li>
+                        <li><a class="dropdown-item" href="#">Fiction</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <form class="d-flex">
+                      <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search"
+                             aria-label="Search">
+                    </form>
+                  </li>
+                  
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+  </nav>
+
+    <!-- carousel -->
+    <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'icons/curosal2.jpeg' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'icons/curosal1.jpeg' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'icons/curosal.jpeg' %}" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    
+    <br>
+
+    <h3 style="text-align: center;">Category</h3>
+    <br>
+    <div class="row row-cols-8"> <div class="col">
+        <div class="card genre-card border-0">
+            <a href="#" style="color: inherit;">
+              <img src="{% static 'icons/biography.png' %}" alt="" style="width: 50px; height: 50px;"></a>
+          <p>चरित्र / वैचारिक / समीक्षा</p>
+        </div>
+    
+      </div>
+      <div class="col">
+        <div class="card genre-card border-0">
+            <a href="#" style="color: inherit;">
+              <img src="{% static 'icons/novel.png' %}" alt="" style="width: 50px; height: 50px;"></a>
+          <p>कादंबरी / कथासंग्रह</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card genre-card border-0">
+            <a href="#" style="color: inherit;">
+              <img src="{% static 'icons/drama.png' %}" alt="" style="width: 50px; height: 50px;"></a>
+          <p>आत्मकथने व नाटक</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card genre-card border-0">
+            <a href="#" style="color: inherit;">
+              <img src="{% static 'icons/poetry.png' %}" alt="" style="width: 50px; height: 50px;"></a>
+          <p>कविता संग्रह</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card genre-card border-0">
+            <a href="#" style="color: inherit;">
+              <img src="{% static 'icons/geography.png' %}" alt="" style="width: 50px; height: 50px;"></a>
+          <p>इतिहास व भुगोल</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card genre-card border-0">
+            <a href="#" style="color: inherit;">
+              <img src="{% static 'icons/political-science.png' %}" alt="" style="width: 50px; height: 50px;"></a>
+          <p>राज्यशास्त्र व लोकप्रशासन</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card genre-card border-0">
+            <a href="#" style="color: inherit;">
+              <img src="{% static 'icons/sociology.png' %}" alt="" style="width: 50px; height: 50px;"></a>
+          <p>समाजशास्त्र</p>
+        </div>
+      </div>
+      </div>
+
+
+      <div class="row row-cols-8"> <div class="col">
+        <div class="card genre-card border-0">
+            <a href="#" style="color: inherit;">
+              <img src="{% static 'icons/economics.png' %}" alt="" style="width: 50px; height: 50px;"></a>
+          <p>अर्थशास्त्र व वाणिज्य</p>
+        </div>
+    
+      </div>
+      <div class="col">
+        <div class="card genre-card border-0">
+            <a href="#" style="color: inherit;">
+              <img src="{% static 'icons/philosophy.png' %}" alt="" style="width: 50px; height: 50px;"></a>
+          <p>शिक्षणशास्त्र व तत्वज्ञान</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card genre-card border-0">
+            <a href="#" style="color: inherit;">
+              <img src="{% static 'icons/library.png' %}" alt="" style="width: 50px; height: 50px;"></a>
+          <p>ग्रंथालय व महितीशास्त्र</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card genre-card border-0">
+            <a href="#" style="color: inherit;">
+              <img src="{% static 'icons/maths.png' %}" alt="" style="width: 50px; height: 50px;"></a>
+          <p>गणित / डेअरी सायन्स / फिशरी सायन्स</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card genre-card border-0">
+            <a href="#" style="color: inherit;">
+              <img src="{% static 'icons/ayurveda.png' %}" alt="" style="width: 50px; height: 50px;"></a>
+          <p>आयुर्वेद</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card genre-card border-0">
+            <a href="#" style="color: inherit;">
+              <img src="{% static 'icons/literature.png' %}" alt="" style="width: 50px; height: 50px;"></a>
+          <p>हिंदी भाषा व साहित्य</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card genre-card border-0">
+            <a href="#" style="color: inherit;">
+              <img src="{% static 'icons/literature.png' %}" alt="" style="width: 50px; height: 50px;"></a>
+          <p>English Language and Literature</p>
+        </div>
+      </div>
+    </div>     
+
+
+    <div class="container">
+
+
+      {% block content %}
+  
+  
+      {% endblock content %}
+  
+  
+    </div>
+  
+    <!-- Best Seller -->
+    <!-- <h3 style="text-align: center;">Best Sellers</h3>
+    <br>
+    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="mar-tab" data-bs-toggle="tab" data-bs-target="#mar" type="button" role="tab" aria-controls="mar" aria-selected="true">Marathi Books</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="eng-tab" data-bs-toggle="tab" data-bs-target="#eng" type="button" role="tab" aria-controls="eng" aria-selected="false">English Books</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="mar" role="tabpanel" aria-labelledby="mar-tab">
+
+        <div class="container">
+          <br>
+          <div class="row">
+              <div class="owl-carousel owl-theme">
+                <a href="#" style="text-decoration: none; outline: none; color: black;"> 
+                <div class="item">
+                      <div class="card">
+                          <div class="card-body">
+                              <img src="icons/frontpage1.jpg" alt="" class="card-img-top" height="300px">
+                              <br>
+                              <h5>भारतीय प्रशासन</h5>
+                              
+                              <p><del style="color: gray">Rs.250</del> 
+                              &nbsp;&nbsp;&nbsp;<span><b>Rs.187</b></span>
+                              &nbsp;&nbsp;&nbsp;<span class="badge text-bg-success">25% OFF</span></p>
+                              <p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                                &nbsp;&nbsp;&nbsp;
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i></p>
+                          </div>
+                      </div>
+                  </div>
+                </a> 
+                <a href="#" style="text-decoration: none; outline: none;"> 
+                  <div class="item">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="icons/frontpage2.jpg" alt="" class="card-img-top" height="300px">
+                                <br>
+                                <h5>भारताचे परराष्ट्रीय धोरण</h5>
+                                
+                                <p><del style="color: gray">Rs.200</del> 
+                                  &nbsp;&nbsp;&nbsp;<span><b>Rs.150</b></span>
+                                  &nbsp;&nbsp;&nbsp;<span class="badge text-bg-success">25% OFF</span></p>
+                                <p>
+                                  <button class="btn btn-primary">Add to Cart</button>
+                                  &nbsp;&nbsp;&nbsp;
+                                  <i class="fas fa-star text-warning"></i>
+                                  <i class="fas fa-star text-warning"></i>
+                                  <i class="fas fa-star text-warning"></i>
+                                  <i class="fas fa-star text-warning"></i>
+                                  <i class="fas fa-star text-warning"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                  </a> 
+                  
+                  <a href="#" style="text-decoration: none; outline: none;"> 
+                    <div class="item">
+                          <div class="card">
+                              <div class="card-body">
+                                  <img src="icons/frontpage3.jpg" alt="" class="card-img-top" height="300px">
+                                  <br>
+                                  <h5>भारतातील गणितीय प्रज्ञावंत</h5>
+                                  
+                                  <p><del style="color: gray">Rs.100</del> 
+                                  &nbsp;&nbsp;&nbsp;<span><b>Rs.75</b></span>
+                                  &nbsp;&nbsp;&nbsp;<span class="badge text-bg-success">25% OFF</span></p>
+                                  <p>
+                                    <button class="btn btn-primary">Add to Cart</button>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i></p>
+                              </div>
+                          </div>
+                      </div>
+                    </a> 
+                  
+  
+                    <a href="#" style="text-decoration: none; outline: none;"> 
+                      <div class="item">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="icons/frontpage4.jpg" alt="" class="card-img-top" height="300px">
+                                    <br>
+                                    <h5>मराठी स्त्री नाटककार</h5>
+                                    
+                                    <p><del style="color: gray">Rs.450</del> 
+                                    &nbsp;&nbsp;&nbsp;<span><b>Rs.337</b></span>
+                                    &nbsp;&nbsp;&nbsp;<span class="badge text-bg-success">25% OFF</span></p>
+                                    <p>
+                                      <button class="btn btn-primary">Add to Cart</button>
+                                      &nbsp;&nbsp;&nbsp;
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                      </a> 
+                  
+              </div>
+          </div>
+  
+      </div>
+           
+      </div>
+      <div class="tab-pane fade" id="eng" role="tabpanel" aria-labelledby="eng-tab">
+        <div class="container">
+          <br>
+          <div class="row">
+              <div class="owl-carousel owl-theme">
+                      <a href="#" style="text-decoration: none; outline: none;"> 
+                        <div class="item">
+                              <div class="card">
+                                  <div class="card-body">
+                                      <img src="icons/frontpage5.jpg" alt="" class="card-img-top" height="300px">
+                                      <br>
+                                      <h5>Idioms In English</h5>
+                                      
+                                      <p><del style="color: gray">Rs.300</del> 
+                                      &nbsp;&nbsp;&nbsp;<span><b>Rs.225</b></span>
+                                      &nbsp;&nbsp;&nbsp;<span class="badge text-bg-success">25% OFF</span></p>
+                                      <p>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i></p>
+                                  </div>
+                              </div>
+                          </div>
+                        </a>
+                  
+              </div>
+          </div>
+  
+      </div>
+      </div> -->
+
+
+    <!-- All Books  -->
+    <!-- <br>
+    <h3 style="text-align: center;">Books</h3>
+
+    <div class="container">
+    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">All Books</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="english-tab" data-bs-toggle="tab" data-bs-target="#english" type="button" role="tab" aria-controls="english" aria-selected="false">English Books</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="marathi-tab" data-bs-toggle="tab" data-bs-target="#marathi" type="button" role="tab" aria-controls="marathi" aria-selected="false">Marathi Books</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="hindi-tab" data-bs-toggle="tab" data-bs-target="#hindi" type="button" role="tab" aria-controls="hindi" aria-selected="false">Hindi Books</button>
+          </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+
+          <div class="container">
+            <br>
+            <div class="row">
+                <div class="owl-carousel owl-theme">
+                  <a href="#" style="text-decoration: none; outline: none; color: black;"> 
+                  <div class="item">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="icons/frontpage1.jpg" alt="" class="card-img-top" height="300px">
+                                <br>
+                                <h5>भारतीय प्रशासन</h5>
+                                
+                                <p><del style="color: gray">Rs.250</del> 
+                                &nbsp;&nbsp;&nbsp;<span><b>Rs.187</b></span>
+                                &nbsp;&nbsp;&nbsp;<span class="badge text-bg-success">25% OFF</span></p>
+                                <p>
+                                  <button class="btn btn-primary">Add to Cart</button>
+                                  &nbsp;
+                                  <i class="fas fa-star text-warning"></i>
+                                  <i class="fas fa-star text-warning"></i>
+                                  <i class="fas fa-star text-warning"></i>
+                                  <i class="fas fa-star text-warning"></i>
+                                  <i class="fas fa-star text-warning"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                  </a> 
+                  <a href="#" style="text-decoration: none; outline: none;"> 
+                    <div class="item">
+                          <div class="card">
+                              <div class="card-body">
+                                  <img src="icons/frontpage2.jpg" alt="" class="card-img-top" height="300px">
+                                  <br>
+                                  <h5>भारताचे परराष्ट्रीय धोरण</h5>
+                                  
+                                  <p><del style="color: gray">Rs.200</del> 
+                                    &nbsp;&nbsp;&nbsp;<span><b>Rs.150</b></span>
+                                    &nbsp;&nbsp;&nbsp;<span class="badge text-bg-success">25% OFF</span></p>
+                                  <p>
+                                    <button class="btn btn-primary">Add to Cart</button>
+                                    &nbsp;
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i></p>
+                              </div>
+                          </div>
+                      </div>
+                    </a> 
+                    
+                    <a href="#" style="text-decoration: none; outline: none;"> 
+                      <div class="item">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="icons/frontpage3.jpg" alt="" class="card-img-top" height="300px">
+                                    <br>
+                                    <h5>भारतातील गणितीय प्रज्ञावंत</h5>
+                                    
+                                    <p><del style="color: gray">Rs.100</del> 
+                                    &nbsp;&nbsp;&nbsp;<span><b>Rs.75</b></span>
+                                    &nbsp;&nbsp;&nbsp;<span class="badge text-bg-success">25% OFF</span></p>
+                                    <p>
+                                      <button class="btn btn-primary">Add to Cart</button>
+                                      &nbsp;
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                      </a> 
+                    
+    
+                      <a href="#" style="text-decoration: none; outline: none;"> 
+                        <div class="item">
+                              <div class="card">
+                                  <div class="card-body">
+                                      <img src="icons/frontpage4.jpg" alt="" class="card-img-top" height="300px">
+                                      <br>
+                                      <h5>मराठी स्त्री नाटककार</h5>
+                                      
+                                      <p><del style="color: gray">Rs.450</del> 
+                                      &nbsp;&nbsp;&nbsp;<span><b>Rs.337</b></span>
+                                      &nbsp;&nbsp;&nbsp;<span class="badge text-bg-success">25% OFF</span></p>
+                                      <p>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                        &nbsp;
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i></p>
+                                  </div>
+                              </div>
+                          </div>
+                        </a> 
+
+                        <a href="#" style="text-decoration: none; outline: none;"> 
+                          <div class="item">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <img src="icons/frontpage5.jpg" alt="" class="card-img-top" height="300px">
+                                        <br>
+                                        <h5>Idioms In English</h5>
+                                        
+                                        <p><del style="color: gray">Rs.300</del> 
+                                        &nbsp;&nbsp;&nbsp;<span><b>Rs.225</b></span>
+                                        &nbsp;&nbsp;&nbsp;<span class="badge text-bg-success">25% OFF</span></p>
+                                        <p>
+                                          <button class="btn btn-primary">Add to Cart</button>
+                                          &nbsp;
+                                          <i class="fas fa-star text-warning"></i>
+                                          <i class="fas fa-star text-warning"></i>
+                                          <i class="fas fa-star text-warning"></i>
+                                          <i class="fas fa-star text-warning"></i>
+                                          <i class="fas fa-star text-warning"></i></p>
+                                    </div>
+                                </div>
+                            </div>
+                          </a>
+                    
+                </div>
+            </div>
+    
+        </div>
+             
+        </div>
+        <div class="tab-pane fade" id="english" role="tabpanel" aria-labelledby="english-tab">
+          <div class="container">
+            <br>
+            <div class="row">
+                <div class="owl-carousel owl-theme">
+                        <a href="#" style="text-decoration: none; outline: none;"> 
+                          <div class="item">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <img src="icons/frontpage5.jpg" alt="" class="card-img-top" height="300px">
+                                        <br>
+                                        <h5>Idioms In English</h5>
+                                        
+                                        <p><del style="color: gray">Rs.300</del> 
+                                        &nbsp;&nbsp;&nbsp;<span><b>Rs.225</b></span>
+                                        &nbsp;&nbsp;&nbsp;<span class="badge text-bg-success">25% OFF</span></p>
+                                        <p>
+                                          <button class="btn btn-primary">Add to Cart</button>
+                                          &nbsp;
+                                          <i class="fas fa-star text-warning"></i>
+                                          <i class="fas fa-star text-warning"></i>
+                                          <i class="fas fa-star text-warning"></i>
+                                          <i class="fas fa-star text-warning"></i>
+                                          <i class="fas fa-star text-warning"></i></p>
+                                    </div>
+                                </div>
+                            </div>
+                          </a>
+                    
+                </div>
+            </div>
+    
+        </div>
+        </div>
+        <div class="tab-pane fade" id="marathi" role="tabpanel" aria-labelledby="marathi-tab">
+          <div class="container">
+            <br>
+            <div class="row">
+                <div class="owl-carousel owl-theme">
+                  <a href="#" style="text-decoration: none; outline: none; color: black;"> 
+                  <div class="item">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="icons/frontpage1.jpg" alt="" class="card-img-top" height="300px">
+                                <br>
+                                <h5>भारतीय प्रशासन</h5>
+                                
+                                <p><del style="color: gray">Rs.250</del> 
+                                &nbsp;&nbsp;&nbsp;<span><b>Rs.187</b></span>
+                                &nbsp;&nbsp;&nbsp;<span class="badge text-bg-success">25% OFF</span></p>
+                                <p>
+                                  <button class="btn btn-primary">Add to Cart</button>
+                                  &nbsp;
+                                  <i class="fas fa-star text-warning"></i>
+                                  <i class="fas fa-star text-warning"></i>
+                                  <i class="fas fa-star text-warning"></i>
+                                  <i class="fas fa-star text-warning"></i>
+                                  <i class="fas fa-star text-warning"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                  </a> 
+                  <a href="#" style="text-decoration: none; outline: none;"> 
+                    <div class="item">
+                          <div class="card">
+                              <div class="card-body">
+                                  <img src="icons/frontpage2.jpg" alt="" class="card-img-top" height="300px">
+                                  <br>
+                                  <h5>भारताचे परराष्ट्रीय धोरण</h5>
+                                  
+                                  <p><del style="color: gray">Rs.200</del> 
+                                    &nbsp;&nbsp;&nbsp;<span><b>Rs.150</b></span>
+                                    &nbsp;&nbsp;&nbsp;<span class="badge text-bg-success">25% OFF</span></p>
+                                  <p>
+                                    <button class="btn btn-primary">Add to Cart</button>
+                                    &nbsp;
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i></p>
+                              </div>
+                          </div>
+                      </div>
+                    </a> 
+                    
+                    <a href="#" style="text-decoration: none; outline: none;"> 
+                      <div class="item">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="icons/frontpage3.jpg" alt="" class="card-img-top" height="300px">
+                                    <br>
+                                    <h5>भारतातील गणितीय प्रज्ञावंत</h5>
+                                    
+                                    <p><del style="color: gray">Rs.100</del> 
+                                    &nbsp;&nbsp;&nbsp;<span><b>Rs.75</b></span>
+                                    &nbsp;&nbsp;&nbsp;<span class="badge text-bg-success">25% OFF</span></p>
+                                    <p>
+                                      <button class="btn btn-primary">Add to Cart</button>
+                                      &nbsp;
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i>
+                                      <i class="fas fa-star text-warning"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                      </a> 
+                    
+    
+                      <a href="#" style="text-decoration: none; outline: none;"> 
+                        <div class="item">
+                              <div class="card">
+                                  <div class="card-body">
+                                      <img src="icons/frontpage4.jpg" alt="" class="card-img-top" height="300px">
+                                      <br>
+                                      <h5>मराठी स्त्री नाटककार</h5>
+                                      
+                                      <p><del style="color: gray">Rs.450</del> 
+                                      &nbsp;&nbsp;&nbsp;<span><b>Rs.337</b></span>
+                                      &nbsp;&nbsp;&nbsp;<span class="badge text-bg-success">25% OFF</span></p>
+                                      <p>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                        &nbsp;
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i></p>
+                                  </div>
+                              </div>
+                          </div>
+                        </a>     
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="tab-pane fade" id="hindi" role="tabpanel" aria-labelledby="hindi-tab">...</div>
+      </div>
+      </div> -->
+
+      <!--About Us-->
+
+      <br>
+      <div class="container-fluid" style="background-color: #F2B6EE;">
+        <h3 style="text-align: center;">About Us</h3>
+        <p>Creative publications, Nanded is one of the premier publishing institutions in Maharashtra (India). Founded in 2002, this firm aims to provide quality books (texts and reference) in all streams (subjects). Over the years, we have developed a wide network of writers, translators, editors and artists. Many of our bestsellers' have formed an essential Part of the syllabi of various universities in Maharashtra. While serving as a leading. distributer and library supplier, we organize many biterary discussions, socio-cultural events educational programmes. wie also offer editoriale guidence, translation and proof-reading facility.</p>            
+        <div class="row justify-content-center" >
+          <div class="col-sm-3 text-center">
+            <img src="{% static 'icons/Nanded.jpeg' %}" class="profile-pic" alt="Cinque Terre" width="180" height="150">
+            <p>Prof.Dr. Dnyaneshwar P.Digole (Founder and Chief Editor)</p>
+          </div>
+          <div class="col-sm-3 text-center">
+            <img src="{% static 'icons/Nanded1.jpeg' %}" class="profile-pic" alt="Cinque Terre" width="180" height="150">
+            <p>Director, Creative Publication s, Nanded (M.S) -431605</p>
+          </div>
+          
+        </div>
+      </div>
+
+
+      <!-- Footer -->
+      <footer class="footer-section">
+        <div class="container">
+           
+            <div class="footer-content pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                                <a href="#"><img src="{% static 'icons/logo.jpeg' %}" class="img-fluid rounded-circle" alt="logo" style="height: 60px; width: auto;"></a>
+                            </div>
+                            <div class="footer-text">
+                                <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing
+                                elit,Lorem ipsum dolor sit amet.</p>
+                            </div>
+                            <div class="footer-social-icon">
+                                <span>Follow us</span>
+                                <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                                <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
+                                <a href="#"><i class="fab fa-instagram instagram-bg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Brand Story</h3>
+                            </div>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <!-- <li><a href="#">Blogs</a></li> -->
+                            </ul>
+                            <div class="footer-widget-heading">
+                              <h3>Shop Now</h3>
+                          </div>
+                            <ul>
+                              <li><a href="#">Books</a></li>
+                              <!-- <li><a href="#">Contact Us</a></li>
+                              <li><a href="#">Blogs</a></li> -->
+                          </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Subscribe</h3>
+                            </div>
+                            <div class="footer-text mb-25">
+                                <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                            </div>
+                            <div class="subscribe-form">
+                                <form action="#">
+                                    <input type="text" placeholder="Email Address">
+                                    <button><i class="fab fa-telegram-plane"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                        <div class="copyright-text">
+                            <p>Copyright &copy; 2024, All Right Reserved </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Terms</a></li>
+                                <li><a href="#">Privacy</a></li>
+                                <li><a href="#">Policy</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $('.owl-carousel').owlCarousel({
+    loop:false,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:4
+        }
+    }
+})
+</script>
+    </body>
+
+</html>

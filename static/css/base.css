@@ -1,0 +1,19 @@
+.genre-card {
+    text-align: center;
+    padding: 1rem;
+    outline: none;
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Optional: Set width to 100% for full-width navbar */
+    z-index: 999; /* Ensure navbar stays on top of other elements */
+  }
+
+  .navbar-logo {
+    height: 20px; /* Adjust the height to your desired regular size */
+    width: 20px; /* Auto adjust width to maintain aspect ratio */
+    margin-left: 20px; /* Adjust the left margin to leave space */
+}
